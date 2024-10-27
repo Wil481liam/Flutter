@@ -11,125 +11,183 @@ class Loginpage extends StatefulWidget {
 class _LoginpageState extends State<Loginpage> {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
-      backgroundColor: Colors.black,
+      // backgroundColor: Colors.black,
       body: Padding(
+
           padding: const EdgeInsets.all(10),
           child: Center(
             child: Column(
-              //crossAxisAlignment: CrossAxisAlignment.stretch,
 
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+
                 SizedBox(height: 20),
-                const CircleAvatar(
-                  radius: 150,
-                  backgroundImage: AssetImage('assets/samuel.png'),
+
+                Container(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: Colors.white,
+                      width: 1
+                    )
+                   ),
+                    child:  CircleAvatar(
+                      radius: 150,
+                      backgroundImage: AssetImage('assets/samuel.png'),
+                      
+                    ),
                 ),
+
                 const SizedBox(
                   height: 80,
                 ),
+
                 Container(
                   width: 415,
                   child: TextFormField(
                     autofocus: true,
                     style: new TextStyle(color: Colors.white, fontSize: 20),
                     cursorWidth: Checkbox.width,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20)),
+                     decoration: InputDecoration(
                       labelText: 'CPF',
-                      labelStyle: TextStyle(color: Colors.lightBlue),
+                       labelStyle: Theme.of(context).textTheme.labelMedium,         
                     ),
                   ),
                 ),
+
                 const SizedBox(
                   height: 50,
                 ),
+
                 Container(
                   width: 415,
                   child: TextFormField(
                     obscureText: true,
                     keyboardType: TextInputType.text,
-                    style: new TextStyle(color: Colors.white, fontSize: 20),
+                    // style: new TextStyle(color: Colors.white, fontSize: 20),
                     decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20)),
+                    //   border: OutlineInputBorder(
+                    //       borderRadius: BorderRadius.circular(20)),
                       labelText: 'Senha',
-                      labelStyle: TextStyle(color: Colors.lightBlue),
+                      labelStyle: Theme.of(context).textTheme.labelMedium,
                     ),
                   ),
                 ),
+
                 const SizedBox(
                   height: 10,
                 ),
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     ButtonTheme(
                       child: TextButton(
                         onPressed: () => {},
-                        child: const Text(
+                        child: Text(
                           'Esqueci a minha senha',
-                          style:
-                              TextStyle(decoration: TextDecoration.underline),
+                          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            decoration: TextDecoration.underline,
+                          ),
                         ),
                       ),
                     ),
                   ],
                 ),
+
                 const SizedBox(
-                  height: 100,
+                  height: 30,
                 ),
-                ButtonTheme(
-                  colorScheme: const ColorScheme.highContrastDark(),
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        minimumSize: Size(190, 45),
-                        foregroundColor: Colors.cyanAccent,
-                        backgroundColor: const Color.fromARGB(202, 38, 45, 46)),
+
+                ElevatedButton(
                     onPressed: () => {},
                     child: Text(
-                      "Avançar -->",
-                      style: TextStyle(color: Colors.lightBlueAccent),
+                      " Avançar ",
                     ),
-                  ),
                 ),
+
                 SizedBox(
-                  height: 50,
-                ),
-                Row(
+                   height: 40,
+                 ),
+
+                Stack(
                   children: [
-                    OutlinedButton(
-                      onPressed: () => {},
-                      child: Center(
-                        child: Row(
-                          children: [
-                            FaIcon(
-                              FontAwesomeIcons.google,
-                              color: Colors.white,
-                            )
-                          ],
+                      Container(
+
+                        width: 260,
+                        height: 80,
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).floatingActionButtonTheme.backgroundColor,
+                          borderRadius: BorderRadius.circular(15),
+                          border: Border.all(color: Colors.white)
                         ),
+                        child:
+                        Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                  
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+
+                                  SizedBox(height: 60,),
+                                  
+                                    OutlinedButton(
+                                      onPressed: () => {},
+                                      child: Center(
+                                        child: Row(
+                                          children: [
+                                            FaIcon(
+                                              FontAwesomeIcons.google,
+                                              color: Colors.white,
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      style: OutlinedButton.styleFrom(
+                                        shape: CircleBorder(),
+                                      ),
+                                    ),
+                                  
+                                  
+                                  OutlinedButton(
+                                    onPressed: () => {},
+                                    child: FaIcon(
+                                      FontAwesomeIcons.facebook,
+                                      color: Colors.white,
+                                    ),
+                                    style: OutlinedButton.styleFrom(
+                                      shape: CircleBorder(),
+                                    ),
+                                  ),
+                                  OutlinedButton(onPressed: () =>{}, 
+                                  child: FaIcon(
+                                      FontAwesomeIcons.envelope,
+                                      color: Colors.white,
+                                  ),
+                                    style: OutlinedButton.styleFrom(
+                                        shape: CircleBorder()
+                                    ),
+                                  )
+                                ],
+                              )
+                            ],
+                        ) 
                       ),
-                      style: OutlinedButton.styleFrom(
-                        shape: CircleBorder(),
-                        side: BorderSide(color: Colors.red, width: 1),
-                      ),
-                    ),
-                    OutlinedButton(
-                      onPressed: () => {},
-                      child: FaIcon(
-                        FontAwesomeIcons.facebook,
-                        color: Colors.blue,
-                      ),
-                      style: OutlinedButton.styleFrom(
-                        shape: CircleBorder(),
-                        side: BorderSide(color: Colors.red, width: 1),
-                      ),
-                    )
+                       Positioned(
+                          top: 0,
+                          left: 15,
+                          
+                          //left:Center,
+                          child: 
+                          Text("Outras formas de acesso",style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                      )
                   ],
-                )
+                ),
+              
               ],
             ),
           )),

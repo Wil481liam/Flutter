@@ -1,8 +1,8 @@
+import 'package:desafio/pages/estilos/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:desafio/pages/LoginPage.dart';
-// ignore: depend_on_referenced_packages
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+//import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,11 +15,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
+        title: 'App Demo',
+        theme: colors_app.Theme,
         home: const Loginpage() //MyHomePage(title: 'Flutter Demo Home Page'),
         );
   }
