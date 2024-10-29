@@ -1,4 +1,5 @@
 import 'package:desafio/pages/estilos/colors.dart';
+import 'package:desafio/pages/secret_1.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:desafio/pages/LoginPage.dart';
@@ -14,10 +15,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
         title: 'App Demo',
+        debugShowCheckedModeBanner: false,
         theme: colors_app.Theme,
-        home: const Loginpage() //MyHomePage(title: 'Flutter Demo Home Page'),
+        home: const secret_1()
+        //MyHomePage(title: 'Flutter Demo Home Page'),
+
+        // //initialRoute: 'LoginPage',
+        // routes: {
+        //   //'LoginPage': (context) => const Loginpage(),
+        //   'secret_1': (context) => const secret_1(),
+        //   //Faz a mesma coisa de cima para as proximas paginas
+        // },
         );
   }
 }
