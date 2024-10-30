@@ -67,13 +67,13 @@ class colors_app {
         fillColor: Color.fromARGB(162, 7, 8, 28),
       ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: Color.fromARGB(193, 21, 5, 5),
+        backgroundColor: Color.fromARGB(211, 21, 5, 5),
         foregroundColor: Colors.lightBlueAccent,
         highlightElevation: 4,
       ),
       colorScheme: ColorScheme(
         brightness: Brightness.light,
-        primary: Color.fromARGB(201, 28, 47, 49),
+        primary: Color.fromARGB(236, 29, 29, 29),
         onPrimary: Colors.lightBlueAccent,
         secondary: Color.fromARGB(201, 73, 91, 94),
         onSecondary: Color.fromARGB(198, 145, 189, 210),
