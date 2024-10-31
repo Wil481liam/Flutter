@@ -1,6 +1,6 @@
-import 'package:desafio/pages/estilos/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class Loginpage extends StatefulWidget {
   const Loginpage({super.key});
@@ -10,6 +10,14 @@ class Loginpage extends StatefulWidget {
 }
 
 class _LoginpageState extends State<Loginpage> {
+  final _formKey = GlobalKey<FormState>();
+
+  final cpfFormatter = MaskTextInputFormatter(
+    mask: '###.###.###-##',
+    filter: {
+      '#': RegExp(r'[0-9]'),
+    },
+  );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,65 +41,115 @@ class _LoginpageState extends State<Loginpage> {
               const SizedBox(
                 height: 80,
               ),
-              Container(
-                width: 380,
-                child: Column(
-                  children: [
-                    Container(
-                      child: TextFormField(
-                        autofocus: true,
-                        style: TextStyle(color: Colors.white, fontSize: 20),
-                        decoration: InputDecoration(
-                          labelText: 'CPF',
-                          labelStyle: Theme.of(context).textTheme.labelMedium,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 50,
-                    ),
-                    Container(
-                      child: TextFormField(
-                        obscureText: true,
-                        keyboardType: TextInputType.text,
-                        decoration: InputDecoration(
-                          labelText: 'Senha',
-                          labelStyle: Theme.of(context).textTheme.labelMedium,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        ButtonTheme(
-                          child: TextButton(
-                            onPressed: () => {},
-                            child: Text(
-                              'Esqueci a minha senha',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium
-                                  ?.copyWith(
-                                    decoration: TextDecoration.underline,
-                                    decorationColor: Colors.lightBlueAccent,
-                                    decorationThickness: 2.0,
-                                  ),
+              Form(
+                key: _formKey,
+                child: Container(
+                  width: 380,
+                  child: Column(
+                    children: [
+                      Container(
+                        child: TextFormField(
+                          inputFormatters: [cpfFormatter],
+                          autofocus: true,
+                          style: TextStyle(color: Colors.white, fontSize: 20),
+                          decoration: InputDecoration(
+                            errorStyle: TextStyle(color: Colors.white30),
+                            labelText: 'CPF',
+                            labelStyle: Theme.of(context).textTheme.labelMedium,
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0xFF45B4A6),
+                              ),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xFF2CB0CE)),
                             ),
                           ),
+                          validator: (valor) {
+                            if (valor == null || valor.isEmpty) {
+                              return 'Você precisa usar o seu cpf';
+                            } else if (valor.length < 14 || valor.length > 14) {
+                              return 'O CPF deve ter 11 caracteres';
+                            }
+                            return null;
+                          },
                         ),
-                      ],
-                    ),
-                  ],
+                      ),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      Container(
+                        child: TextFormField(
+                          obscureText: true,
+                          keyboardType: TextInputType.text,
+                          decoration: InputDecoration(
+                            errorStyle: TextStyle(color: Colors.white30),
+                            labelText: 'Senha',
+                            labelStyle: Theme.of(context).textTheme.labelMedium,
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xFF2CB0CE)),
+                            ),
+                          ),
+                          validator: (valor) {
+                            if (valor == null || valor.isEmpty) {
+                              return 'Digite sua senha';
+                            } else if (valor.length < 8 || valor.length > 10) {
+                              return 'A senha deve ter de 8 a 10 caracteres';
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          ButtonTheme(
+                            child: TextButton(
+                              onPressed: () => {},
+                              child: Text(
+                                'Esqueci a minha senha',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium
+                                    ?.copyWith(
+                                      decoration: TextDecoration.underline,
+                                      decorationColor: Colors.lightBlueAccent,
+                                      decorationThickness: 2.0,
+                                    ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(
                 height: 30,
               ),
               ElevatedButton(
-                onPressed: () => {},
+                onPressed: () {
+                  if (_formKey.currentState?.validate() ?? false) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Formulário válido!')),
+                    );
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Por favor, corrija os erros.'),
+                        backgroundColor:
+                            const Color.fromARGB(255, 201, 238, 255),
+                        shape: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12)),
+                      ),
+                    );
+                  }
+                },
+                //() => {},
                 child: Text(
                   " Avançar ",
                 ),

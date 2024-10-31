@@ -13,84 +13,57 @@ class _secret_1State extends State<secret_1> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(50),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                width: 300,
-                height: 200,
-                decoration:
-                    BoxDecoration(border: Border.all(color: Colors.orange)),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          width: 70,
-                          height: 70,
-                          decoration: BoxDecoration(
-                              border: Border.all(
-                                  color: const Color.fromARGB(
-                                      255, 255, 255, 254))),
-                          child: Container(
-                            height: 40,
-                            width: 40,
-                            decoration: BoxDecoration(
-                                border: Border.all(
-                                    color:
-                                        const Color.fromARGB(255, 100, 4, 4))),
-                          ),
-                        ),
-                        Container(
-                          width: 70,
-                          height: 70,
-                          decoration: BoxDecoration(
-                              border: Border.all(
-                                  color: const Color.fromARGB(
-                                      255, 178, 178, 178))),
-                          child: Container(
-                            height: 40,
-                            width: 40,
-                            decoration: BoxDecoration(
-                                border: Border.all(
-                                    color:
-                                        const Color.fromARGB(255, 67, 244, 3))),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+        padding: const EdgeInsets.only(top: 50, left: 15, right: 15),
+        child: SingleChildScrollView(
+          child: Center(
+            child: Row(
+              children: [
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      containersMode(
+                        assetImage: 'assets/luz_teste.jpg',
+                        productName: 'BBBBBBBB',
+                        preco: 199.99,
+                      ),
+                      sized_mod(),
+                      containersMode(
+                        assetImage: 'assets/luz_teste.jpg',
+                        productName: 'BBBBBBBB',
+                        preco: 199.99,
+                      ),
+                      sized_mod(),
+                      containersMode(
+                        assetImage: 'assets/luz_teste.jpg',
+                        productName: 'BBBBBBBB',
+                        preco: 199.99,
+                      ),
+                      sized_mod(),
+                      containersMode(
+                        assetImage: 'assets/samuel.png',
+                        productName: 'BBBBBBBB',
+                        preco: 199.99,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              Container(
-                width: 200,
-                height: 200,
-                decoration:
-                    BoxDecoration(border: Border.all(color: Colors.orange)),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          child: Container(
-                            color: Colors.blue,
-                          ),
-                        ),
-                        Container(
-                          child: Container(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+                const SizedBox(
+                  width: 15,
                 ),
-              )
-            ],
+                Expanded(
+                  child: Column(
+                    children: [
+                      containersMode(
+                        assetImage: 'assets/luz_teste.jpg',
+                        productName: 'BBBBBBBB',
+                        preco: 199.99,
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
@@ -216,4 +189,52 @@ class _secret_1State extends State<secret_1> {
       ),
     );
   }
+}
+
+Widget sized_mod() {
+  return SizedBox(
+    height: 10,
+  );
+}
+
+Widget containersMode({
+  required String assetImage,
+  required String productName,
+  required double preco,
+}) {
+  var height = 350;
+  return Container(
+    width: 300,
+    height: 280,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(4),
+      color: const Color.fromARGB(150, 144, 202, 119),
+    ),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Opacity(
+          opacity: 0.8,
+          child: Image.asset(
+            assetImage,
+            width: 190,
+            height: height *
+                0.6, // Ajusta o tamanho da imagem proporcional ao container
+            alignment: Alignment.topCenter,
+            fit: BoxFit.contain,
+          ),
+        ),
+        const SizedBox(height: 8),
+        Text(
+          productName,
+          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          'R\$ $preco',
+          style: const TextStyle(fontSize: 14, color: Colors.grey),
+        ),
+      ],
+    ),
+  );
 }
