@@ -1,4 +1,3 @@
-import 'package:desafio/pages/estilos/ativi.dart';
 import 'package:desafio/pages/estilos/colors.dart';
 import 'package:desafio/pages/secret_1.dart';
 import 'package:flutter/material.dart';
