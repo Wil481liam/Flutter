@@ -24,25 +24,25 @@ class _secret_1State extends State<secret_1> {
                     children: [
                       containersMode(
                         assetImage: 'assets/luz_teste.jpg',
-                        productName: 'BBBBBBBB',
+                        productName: 'Bolt',
                         preco: 199.99,
                       ),
                       sized_mod(),
                       containersMode(
                         assetImage: 'assets/luz_teste.jpg',
-                        productName: 'BBBBBBBB',
+                        productName: 'Tony',
                         preco: 199.99,
                       ),
                       sized_mod(),
                       containersMode(
                         assetImage: 'assets/luz_teste.jpg',
-                        productName: 'BBBBBBBB',
+                        productName: 'Mel',
                         preco: 199.99,
                       ),
                       sized_mod(),
                       containersMode(
                         assetImage: 'assets/samuel.png',
-                        productName: 'BBBBBBBB',
+                        productName: 'Pretinha',
                         preco: 199.99,
                       ),
                     ],
@@ -56,7 +56,7 @@ class _secret_1State extends State<secret_1> {
                     children: [
                       containersMode(
                         assetImage: 'assets/luz_teste.jpg',
-                        productName: 'BBBBBBBB',
+                        productName: 'Babalu',
                         preco: 199.99,
                       ),
                     ],
@@ -189,52 +189,113 @@ class _secret_1State extends State<secret_1> {
       ),
     );
   }
-}
 
-Widget sized_mod() {
-  return SizedBox(
-    height: 10,
-  );
-}
+  Widget sized_mod() {
+    return SizedBox(
+      height: 10,
+    );
+  }
 
-Widget containersMode({
-  required String assetImage,
-  required String productName,
-  required double preco,
-}) {
-  var height = 350;
-  return Container(
-    width: 300,
-    height: 280,
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(4),
-      color: const Color.fromARGB(150, 144, 202, 119),
-    ),
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        Opacity(
-          opacity: 0.8,
-          child: Image.asset(
-            assetImage,
-            width: 190,
-            height: height *
-                0.6, // Ajusta o tamanho da imagem proporcional ao container
-            alignment: Alignment.topCenter,
-            fit: BoxFit.contain,
+  Widget containersMode({
+    required String assetImage,
+    required String productName,
+    required double preco,
+  }) {
+    var height = 350;
+    return Container(
+      width: 300,
+      height: 280,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(4),
+        color: const Color.fromARGB(255, 222, 222, 211),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Opacity(
+            opacity: 0.8,
+            child: Image.asset(
+              assetImage,
+              width: 190,
+              height: height *
+                  0.6, // Ajusta o tamanho da imagem proporcional ao container
+              alignment: Alignment.topCenter,
+              fit: BoxFit.contain,
+            ),
           ),
-        ),
-        const SizedBox(height: 8),
-        Text(
-          productName,
-          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(height: 4),
-        Text(
-          'R\$ $preco',
-          style: const TextStyle(fontSize: 14, color: Colors.grey),
-        ),
-      ],
-    ),
-  );
+          const SizedBox(height: 8),
+          Text(
+            productName,
+            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                  color: Color.fromARGB(255, 0, 0, 0),
+                ),
+          ),
+          const SizedBox(height: 4),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SizedBox(
+                width: 5,
+              ),
+              Expanded(
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Espécie: $preco',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(color: Color.fromARGB(255, 72, 52, 52)),
+                      ),
+                      Text(
+                        'Sexo:',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(color: Color.fromARGB(255, 72, 52, 52)),
+                      ),
+                      Text(
+                        'Idade:',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(color: Color.fromARGB(255, 72, 52, 52)),
+                      ),
+                      Text(
+                        'Tamanho: ',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(color: Color.fromARGB(255, 72, 52, 52)),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 8),
+                child: OutlinedButton(
+                  onPressed: () => {},
+                  style: OutlinedButton.styleFrom(
+                    fixedSize: Size(40, 40),
+                    shape: CircleBorder(),
+                    alignment: Alignment.center,
+                    side: BorderSide(color: Colors.transparent),
+                    overlayColor: Colors.transparent,
+                  ),
+                  child: Icon(
+                    FontAwesomeIcons.heart,
+                    size: 15,
+                  ),
+                ),
+              )
+            ],
+          ),
+        ],
+      ),
+    );
+  }
 }
