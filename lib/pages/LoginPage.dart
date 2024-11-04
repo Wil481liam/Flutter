@@ -4,6 +4,7 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class Loginpage extends StatefulWidget {
   const Loginpage({super.key});
+  //const Loginpage({super.key});
 
   @override
   State<Loginpage> createState() => _LoginpageState();
@@ -137,6 +138,7 @@ class _LoginpageState extends State<Loginpage> {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text('Formulário válido!')),
                     );
+                    Navigator.pushNamed(context, '/catalogo');
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(

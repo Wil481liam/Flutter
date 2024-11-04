@@ -1,8 +1,8 @@
+import 'package:desafio/pages/LoginPage.dart';
 import 'package:desafio/pages/estilos/colors.dart';
-import 'package:desafio/pages/secret_1.dart';
+import 'package:desafio/pages/catalogo.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:desafio/pages/LoginPage.dart';
 //import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
@@ -15,20 +15,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'App Demo',
-        debugShowCheckedModeBanner: false,
-        theme: colors_app.Theme,
-        home: const secret_1()
-        //home: Loginpage(),
-        //MyHomePage(title: 'Flutter Demo Home Page'),
+      title: 'App Demo',
+      debugShowCheckedModeBanner: false,
+      theme: colors_app.Theme,
+      //home: catalogo(),
+      //home: Loginpage(),
+      //MyHomePage(title: 'Flutter Demo Home Page'),
 
-        // //initialRoute: 'LoginPage',
-        // routes: {
-        //   //'LoginPage': (context) => const Loginpage(),
-        //   'secret_1': (context) => const secret_1(),
-        //   //Faz a mesma coisa de cima para as proximas paginas
-        // },
-        );
+      initialRoute: '/LoginPage',
+      routes: {
+        '/LoginPage': (context) => const Loginpage(),
+        '/catalogo': (context) => const catalogo(),
+        //Faz a mesma coisa de cima para as proximas paginas
+      },
+    );
   }
 }
 
