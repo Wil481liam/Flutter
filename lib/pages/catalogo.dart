@@ -2,199 +2,116 @@ import 'package:desafio/pages/estilos/stateless.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class catalogo extends StatefulWidget {
-  const catalogo({super.key});
+class catalogoPage extends StatefulWidget {
+  const catalogoPage({super.key});
 
   @override
-  State<catalogo> createState() => _catalogoState();
+  State<catalogoPage> createState() => _catalogoPageState();
 }
 
-class _catalogoState extends State<catalogo> {
+class _catalogoPageState extends State<catalogoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Icon(FontAwesomeIcons.hockeyPuck),
-      ),
-      //drawer: Menu(),
+      resizeToAvoidBottomInset: true,
       body: Padding(
         padding: const EdgeInsets.only(top: 50, left: 15, right: 15),
         child: SingleChildScrollView(
           child: Center(
-            child: Row(
+            child: Column(
               children: [
-                Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                Container(
+                  width: 400,
+                  height: 400,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.amber,
+                  ),
+                  child: Row(
                     children: [
-                      containersMode(
-                        assetImage: 'assets/samuel.png',
-                        productName: 'Bolt',
-                        preco: 199.99,
-                      ),
-                      sized_mod(),
-                      containersMode(
-                        assetImage: 'assets/samuel.png',
-                        productName: 'Tony',
-                        preco: 199.99,
-                      ),
-                      sized_mod(),
-                      containersMode(
-                        assetImage: 'assets/samuel.png',
-                        productName: 'Mel',
-                        preco: 199.99,
-                      ),
-                      sized_mod(),
-                      containersMode(
-                        assetImage: 'assets/samuel.png',
-                        productName: 'Pretinha',
-                        preco: 199.99,
-                      ),
+                      Column(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.all(15),
+                            child: Container(
+                              width: 300,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Image.asset(
+                                  'assets/samuel.png',
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
                     ],
                   ),
                 ),
-                const SizedBox(
-                  width: 15,
+                SizedBox(
+                  height: 20,
                 ),
-                Expanded(
-                  child: Column(
-                    children: [
-                      containersMode(
-                        assetImage: 'assets/samuel.png',
-                        productName: 'Babalu',
-                        preco: 199.99,
+                Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          containersMode(
+                              assetImage: 'assets/samuel.png',
+                              nome: 'bolt',
+                              especie: 'dog',
+                              sexo: 'Macho',
+                              idade: '3 anos',
+                              tamanho: '30 cm'),
+                          // sized_mod(),
+                          // containersMode(
+                          //   assetImage: 'assets/samuel.png',
+                          //   productName: 'Tony',
+                          //   preco: 199.99,
+                          // ),
+                          // sized_mod(),
+                          // containersMode(
+                          //   assetImage: 'assets/samuel.png',
+                          //   productName: 'Mel',
+                          //   preco: 199.99,
+                          // ),
+                          sized_mod(),
+                          containersMode(
+                              assetImage: 'assets/samuel.png',
+                              nome: 'Pretinha',
+                              especie: 'dog',
+                              sexo: 'Macho',
+                              idade: '3 anos',
+                              tamanho: '30 cm'),
+                        ],
                       ),
-                    ],
-                  ),
-                )
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    Expanded(
+                      child: Column(
+                        children: [
+                          containersMode(
+                              assetImage: 'assets/samuel.png',
+                              nome: 'Babalu',
+                              especie: 'dog',
+                              sexo: 'Macho',
+                              idade: '3 anos',
+                              tamanho: '30 cm'),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ],
             ),
           ),
         ),
       ),
       bottomNavigationBar: BottomApp(),
-      //--------------------------------------------------------
-      // bottomNavigationBar: Container(
-      //   decoration: BoxDecoration(
-      //       border: Border(
-      //           top: BorderSide(
-      //     color: Colors.white,
-      //     width: 0.2,
-      //   ))),
-      //   child: BottomAppBar(
-      //     color: Theme.of(context).colorScheme.primary,
-      //     child: Row(
-      //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-      //       children: [
-      //         Container(
-      //           alignment: Alignment.center,
-      //           child: ElevatedButton(
-      //             style: ButtonStyle(
-      //                 backgroundColor:
-      //                     WidgetStatePropertyAll(Colors.transparent),
-      //                 maximumSize: WidgetStatePropertyAll(Size(100, 200)),
-      //                 minimumSize: WidgetStatePropertyAll(Size(100, 200)),
-      //                 shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-      //                     borderRadius: BorderRadius.circular(2)))),
-      //             onPressed: () => {},
-      //             child: Column(
-      //               mainAxisAlignment: MainAxisAlignment.center,
-      //               children: [
-      //                 Icon(
-      //                   FontAwesomeIcons.house,
-      //                   size: 18,
-      //                 ),
-      //                 Text(
-      //                   'home',
-      //                   style: TextStyle(fontSize: 15),
-      //                 ),
-      //               ],
-      //             ),
-      //           ),
-      //         ),
-      //         Container(
-      //           alignment: Alignment.center,
-      //           child: ElevatedButton(
-      //               onPressed: () => {},
-      //               style: ButtonStyle(
-      //                 backgroundColor:
-      //                     WidgetStatePropertyAll(Colors.transparent),
-      //                 minimumSize: WidgetStatePropertyAll(Size(100, 200)),
-      //                 maximumSize: WidgetStatePropertyAll(Size(100, 200)),
-      //                 shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-      //                     borderRadius: BorderRadius.circular(2))),
-      //               ),
-      //               child: Column(
-      //                 mainAxisAlignment: MainAxisAlignment.center,
-      //                 children: [
-      //                   Icon(
-      //                     FontAwesomeIcons.dog,
-      //                     size: 18,
-      //                   ),
-      //                   Text(
-      //                     'Profile',
-      //                     style: TextStyle(fontSize: 15),
-      //                   ),
-      //                 ],
-      //               )),
-      //         ),
-      //         Container(
-      //           alignment: Alignment.center,
-      //           child: ElevatedButton(
-      //               onPressed: () => {},
-      //               style: ButtonStyle(
-      //                 backgroundColor:
-      //                     WidgetStatePropertyAll(Colors.transparent),
-      //                 minimumSize: WidgetStatePropertyAll(Size(100, 200)),
-      //                 maximumSize: WidgetStatePropertyAll(Size(100, 200)),
-      //                 shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-      //                     borderRadius: BorderRadius.circular(2))),
-      //               ),
-      //               child: Column(
-      //                 mainAxisAlignment: MainAxisAlignment.center,
-      //                 children: [
-      //                   Icon(
-      //                     FontAwesomeIcons.cartShopping,
-      //                     size: 18,
-      //                   ),
-      //                   Text(
-      //                     'carrinho',
-      //                     style: TextStyle(fontSize: 14),
-      //                   ),
-      //                 ],
-      //               )),
-      //         ),
-      //         Container(
-      //           alignment: Alignment.center,
-      //           child: ElevatedButton(
-      //               onPressed: () => {},
-      //               style: ButtonStyle(
-      //                 backgroundColor:
-      //                     WidgetStatePropertyAll(Colors.transparent),
-      //                 minimumSize: WidgetStatePropertyAll(Size(100, 200)),
-      //                 maximumSize: WidgetStatePropertyAll(Size(100, 200)),
-      //                 shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-      //                     borderRadius: BorderRadius.circular(2))),
-      //               ),
-      //               child: Column(
-      //                 mainAxisAlignment: MainAxisAlignment.center,
-      //                 children: [
-      //                   Icon(
-      //                     FontAwesomeIcons.bars,
-      //                     size: 18,
-      //                   ),
-      //                   Text(
-      //                     'menu',
-      //                     style: TextStyle(fontSize: 15),
-      //                   ),
-      //                 ],
-      //               )),
-      //         ),
-      //       ],
-      //     ),
-      //   ),
-      // ),
-//-----------------------------------------------
     );
   }
 
@@ -206,13 +123,16 @@ class _catalogoState extends State<catalogo> {
 
   Widget containersMode({
     required String assetImage,
-    required String productName,
-    required double preco,
+    required String nome,
+    required String especie,
+    required String sexo,
+    required String idade,
+    required String tamanho,
   }) {
     var height = 350;
     return Container(
       width: 300,
-      height: 340,
+      height: 375,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(4),
         color: const Color.fromARGB(255, 222, 222, 211),
@@ -231,14 +151,13 @@ class _catalogoState extends State<catalogo> {
               fit: BoxFit.contain,
             ),
           ),
-          const SizedBox(height: 8),
           Text(
-            productName,
+            '$nome',
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
                   color: Color.fromARGB(255, 0, 0, 0),
                 ),
           ),
-          const SizedBox(height: 4),
+          const SizedBox(height: 12),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -252,28 +171,28 @@ class _catalogoState extends State<catalogo> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Espécie: $preco',
+                        'Espécie: $especie',
                         style: Theme.of(context)
                             .textTheme
                             .bodyMedium
                             ?.copyWith(color: Color.fromARGB(255, 72, 52, 52)),
                       ),
                       Text(
-                        'Sexo:',
+                        'Sexo: $sexo',
                         style: Theme.of(context)
                             .textTheme
                             .bodyMedium
                             ?.copyWith(color: Color.fromARGB(255, 72, 52, 52)),
                       ),
                       Text(
-                        'Idade:',
+                        'Idade:$idade',
                         style: Theme.of(context)
                             .textTheme
                             .bodyMedium
                             ?.copyWith(color: Color.fromARGB(255, 72, 52, 52)),
                       ),
                       Text(
-                        'Tamanho: ',
+                        'Tamanho: $tamanho',
                         style: Theme.of(context)
                             .textTheme
                             .bodyMedium
@@ -285,24 +204,45 @@ class _catalogoState extends State<catalogo> {
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 8),
-                child: OutlinedButton(
-                  onPressed: () => {},
-                  style: OutlinedButton.styleFrom(
-                    fixedSize: Size(40, 40),
-                    shape: CircleBorder(),
-                    alignment: Alignment.center,
-                    side: BorderSide(color: Colors.transparent),
-                    overlayColor: Colors.transparent,
-                  ),
-                  child: Icon(
-                    FontAwesomeIcons.heart,
-                    size: 15,
-                  ),
-                ),
-              )
+                child: HeartButton(),
+              ),
             ],
           ),
         ],
+      ),
+    );
+  }
+}
+
+class HeartButton extends StatefulWidget {
+  @override
+  _HeartButtonState createState() => _HeartButtonState();
+}
+
+class _HeartButtonState extends State<HeartButton> {
+  bool isLiked = false; // Variável para controlar o estado do coração
+
+  @override
+  Widget build(BuildContext context) {
+    return OutlinedButton(
+      onPressed: () {
+        setState(() {
+          isLiked = !isLiked; // Alterna entre curtido e não curtido
+        });
+      },
+      style: OutlinedButton.styleFrom(
+        fixedSize: Size(40, 40), // Tamanho fixo do botão
+        shape: CircleBorder(), // Forma circular do botão
+        alignment: Alignment.center,
+        side: BorderSide(color: Colors.transparent), // Sem borda visível
+        backgroundColor: Colors.transparent, // Fundo transparente
+      ),
+      child: Icon(
+        FontAwesomeIcons.heart, // Ícone do coração
+        size: 20, // Tamanho do ícone
+        color: isLiked
+            ? Colors.red
+            : Colors.grey, // Se curtido, ícone vermelho, senão cinza
       ),
     );
   }
