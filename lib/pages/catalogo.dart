@@ -25,25 +25,50 @@ class _catalogoPageState extends State<catalogoPage> {
                   height: 400,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    color: Colors.amber,
+                    color: const Color(0xFFE3DADB),
                   ),
                   child: Row(
                     children: [
                       Column(
                         children: [
                           Padding(
-                            padding: EdgeInsets.all(15),
+                            padding: EdgeInsets.only(top: 30, left: 17),
                             child: Container(
-                              width: 300,
+                              width: 367,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
                                 child: Image.asset(
-                                  'assets/samuel.png',
+                                  'assets/fotoprincipal.jpg',
                                   fit: BoxFit.cover,
                                 ),
                               ),
                             ),
                           ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Padding(
+                              padding: EdgeInsets.only(left: 18),
+                              child: Container(
+                                alignment: Alignment.center,
+                                width: 365,
+                                height: 80,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(color: Colors.black),
+                                ),
+                                child: Text(
+                                  'Transforme a vida de um animal,\n adote com amor!',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .labelMedium
+                                      ?.copyWith(
+                                          color:
+                                              Color.fromARGB(251, 27, 51, 91),
+                                          fontSize: 22),
+                                  textAlign: TextAlign.center,
+                                ),
+                              )),
                         ],
                       )
                     ],

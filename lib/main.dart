@@ -1,8 +1,7 @@
+import 'package:desafio/pages/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'package:url_launcher/url_launcher.dart';
 import 'package:desafio/pages/estilos/colors.dart';
 import 'package:desafio/pages/catalogo.dart';
 
@@ -26,8 +25,9 @@ class MyApp extends StatelessWidget {
         title: 'App Demo',
         debugShowCheckedModeBanner: false,
         theme: colors_app.Theme,
-        initialRoute: '/LoginPage',
+        initialRoute: '/splash',
         routes: {
+          '/splash': (context) => const Splash(),
           '/LoginPage': (context) => const Loginpage(),
           '/catalogo': (context) => const catalogoPage(),
         },
