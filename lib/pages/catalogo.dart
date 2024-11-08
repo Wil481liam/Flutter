@@ -1,6 +1,8 @@
+import 'package:desafio/pages/carrosel.dart';
 import 'package:desafio/pages/estilos/stateless.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class catalogoPage extends StatefulWidget {
   const catalogoPage({super.key});
@@ -24,48 +26,46 @@ class _catalogoPageState extends State<catalogoPage> {
                   width: 400,
                   height: 400,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(10),
                     color: const Color(0xFFE3DADB),
                   ),
                   child: Row(
                     children: [
                       Column(
                         children: [
-                          Padding(
-                            padding: EdgeInsets.only(top: 30, left: 17),
-                            child: Container(
-                              width: 367,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: Image.asset(
-                                  'assets/fotoprincipal.jpg',
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ),
-                          ),
                           SizedBox(
                             height: 20,
                           ),
+                          Container(
+                            width: 400,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.asset(
+                                'assets/banner.png',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
                           Padding(
-                              padding: EdgeInsets.only(left: 18),
+                              padding: EdgeInsets.only(left: 2),
                               child: Container(
                                 alignment: Alignment.center,
                                 width: 365,
                                 height: 80,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
-                                  border: Border.all(color: Colors.black),
+                                  color: Color.fromARGB(251, 27, 51, 91),
+                                  border: Border.all(
+                                      width: 2,
+                                      color:
+                                          const Color.fromARGB(255, 248, 5, 5)),
                                 ),
                                 child: Text(
                                   'Transforme a vida de um animal,\n adote com amor!',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .labelMedium
-                                      ?.copyWith(
-                                          color:
-                                              Color.fromARGB(251, 27, 51, 91),
-                                          fontSize: 22),
+                                  style: GoogleFonts.raleway(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                      fontSize: 22),
                                   textAlign: TextAlign.center,
                                 ),
                               )),
@@ -76,6 +76,31 @@ class _catalogoPageState extends State<catalogoPage> {
                 ),
                 SizedBox(
                   height: 20,
+                ),
+                Row(children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: 5),
+                    child: Container(
+                      height: 140,
+                      width: 405,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                            color: const Color.fromARGB(72, 227, 218, 219)),
+                        color: const Color.fromARGB(255, 58, 52, 52),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: const ImageCarousel(
+                        imagePaths: [
+                          'assets/samuel.png',
+                          'assets/petmania.png',
+                          'assets/senai.jpg',
+                        ],
+                      ),
+                    ),
+                  )
+                ]),
+                SizedBox(
+                  height: 35,
                 ),
                 Row(
                   children: [
@@ -263,11 +288,13 @@ class _HeartButtonState extends State<HeartButton> {
         backgroundColor: Colors.transparent, // Fundo transparente
       ),
       child: Icon(
-        FontAwesomeIcons.heart, // Ícone do coração
+        Icons.favorite, // Ícone do coração
         size: 20, // Tamanho do ícone
+
         color: isLiked
             ? Colors.red
-            : Colors.grey, // Se curtido, ícone vermelho, senão cinza
+            : const Color.fromARGB(
+                134, 158, 158, 158), // Se curtido, ícone vermelho, senão cinza
       ),
     );
   }

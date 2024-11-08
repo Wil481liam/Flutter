@@ -24,22 +24,3 @@ class Autentificao {
     }
   }
 }
-
-void main() async {
-  try {
-    var conexao = await MySqlConnection.connect(
-      ConnectionSettings(
-          host: "localhost", user: "root", password: null, db: "petmania"),
-    );
-    var result = await conexao.query("SELECT * FROM usuarios;");
-    //print(result);
-
-    for (var row in result) {
-      print(
-          'ID: ${row[0]}, Nome: ${row[1]}, Data de nascimento: ${row[2]}, CPF: ${row[3]}, Email: ${row[4]}, Senha: ${row[5]}');
-    }
-    await conexao.close();
-  } catch (e) {
-    print("Erro:> ${e}");
-  }
-}
